@@ -8,14 +8,27 @@ const chatSchema = new Schema<IChatMessage>(
       ref: 'User',
       required: true,
     },
+
+    chatId: {
+      type: String,
+      required: true,
+      index: true
+    },
+
+    title: {
+      type: String,
+      default: null
+    },
+
     role: {
       type: String,
       enum: ['user', 'assistant'],
       required: true,
     },
+
     content: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   { timestamps: true }
